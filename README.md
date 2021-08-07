@@ -2,6 +2,7 @@
 - This is a simple GUI program that helps to download a YouTube video by a given URL
 - Tkinter is used for GUI design and pytube is used for downloading the YouTube 
 - I created this program to practice and test my skill in GUI programming as I just started learning Tkinter
+> I'm only doing this project for fun, but feel free to provide any suggestions to improve
 
 # Setup
 1. Install the latest version of [Python](https://www.python.org/downloads/)
@@ -10,8 +11,11 @@
 python -m pip install pytube
 ```
 # Usage
-### Just simply clone the repository and have fun!
-- I'm only doing this project for fun, but feel free to provide any suggestions to improve
+- Clone the repository
+- Run yt_downloader.py on an IDE or using command prompt by directing to the folder path and type:
+  ``` bash
+  python yt_downloader.py
+  ```
 
 # Reflections
 - I've always wanted to get into GUI development and I think I'm off to a pretty good start
