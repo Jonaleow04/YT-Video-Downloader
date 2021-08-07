@@ -5,6 +5,7 @@ from pytube import YouTube
 class YTdownloader():
 
     def __init__(self):
+        #setup
         self.window = tk.Tk()
         self.widgets()
 
@@ -30,29 +31,47 @@ class YTdownloader():
 
         self.again = tk.Button(text = 'Click to download new video', command=self.redo)
         self.again.grid(row = 2, column = 1)
-        self.again.grid_remove()
-
-    def download_video(self):
-        url = self.input_url.get()
-        download_folder = self.download_path.get()
-        yt = YouTube(url).streams.get_highest_resolution()
-        yt.download(download_folder)
-        self.download_button.grid_remove()
-        self.again.grid()
-        messagebox.showinfo("Notice", "Video has been downloaded in PATH:\n" + download_folder)
+        self.again.grid_remove() #hide the again widget
 
     def browse(self):
         download_Directory = filedialog.askdirectory()
         self.download_path.set(download_Directory)
 
+    def download_video(self):
+        #get the value of variable in_url
+        url = self.input_url.get()
+
+        #set the download folder 
+        download_folder = self.download_path.get()
+
+        #down video at highest resolution
+        yt = YouTube(url).streams.get_highest_resolution()
+
+        #download video to the set path
+        yt.download(download_folder)
+
+        #hide download widget
+        self.download_button.grid_remove()
+
+        #show again widget
+        self.again.grid()
+
+        #pop up message box
+        messagebox.showinfo("Notice", "Video has been downloaded in PATH:\n" + download_folder)
+
     def redo(self):
         self.again.grid_remove()
-        self.input_url.delete(0, 'end')
+        self.input_url.delete(0, 'end') #clear input box
         self.download_button.grid()
 
 def main():
+    #create object
     program = YTdownloader()
+
+    #set title of the gui
     program.window.title('YT Video Downloader')
+
+    #run tkinter event loop
     program.window.mainloop()
 
 if __name__ == '__main__':
