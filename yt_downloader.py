@@ -10,27 +10,30 @@ class YTdownloader():
         self.widgets()
 
     def widgets(self):
+        yt_label = tk.Label(text = 'Youtube Video Downloader')
+        yt_label.grid(row = 0, column = 1, columnspan = 1, padx = 10)
+
         input_label = tk.Label(text = "URL: ")
-        input_label.grid(row = 0, column = 0, sticky = 'w', padx = 10) 
+        input_label.grid(row = 1, column = 0, sticky = 'w', padx = 10) 
 
         self.download_button = tk.Button(text = 'Download', command = self.download_video)
-        self.download_button.grid(row = 2, column = 1, padx = 10)
+        self.download_button.grid(row = 3, column = 1, padx = 10)
 
         self.input_url = tk.Entry(width = 55)
-        self.input_url.grid(row = 0, column = 1, sticky = 'e', padx = 10)
+        self.input_url.grid(row = 1, column = 1, sticky = 'e', padx = 10)
 
         destination_label = tk.Label(text = 'Destination: ')
-        destination_label.grid(row = 1, column = 0, sticky = 'w', padx = 10)
+        destination_label.grid(row = 2, column = 0, sticky = 'w', padx = 10)
 
         self.download_path = tk.StringVar()
         input_destination = tk.Entry(width = 45, textvariable = self.download_path)
-        input_destination.grid(row = 1, column = 1, sticky = 'w', padx = 10)
+        input_destination.grid(row = 2, column = 1, sticky = 'w', padx = 10)
 
         destination_button = tk.Button(text = 'Browse', command = self.browse)
-        destination_button.grid(row = 1, column = 1, sticky = 'e', padx = 10)
+        destination_button.grid(row = 2, column = 1, sticky = 'e', padx = 10)
 
         self.again = tk.Button(text = 'Click to download new video', command=self.redo)
-        self.again.grid(row = 2, column = 1)
+        self.again.grid(row = 3, column = 1)
         self.again.grid_remove() #hide the again widget
 
     def browse(self):
