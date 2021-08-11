@@ -37,7 +37,9 @@ class YTdownloader():
         self.again.grid_remove() #hide the again widget
 
     def browse(self):
+        #pop up file browser
         download_Directory = filedialog.askdirectory()
+        #set download path
         self.download_path.set(download_Directory)
 
     def download_video(self):
